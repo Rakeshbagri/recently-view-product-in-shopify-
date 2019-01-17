@@ -1,0 +1,26 @@
+
+# create snippets recently-view and add where you want show recently view product
+{%include 'recently-view'%}
+
+
+# please add latest jquery file in head
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+ 
+#add following code in footer end of </body> tag
+
+<!-- Begin Recently Viewed Products -->
+
+{{ '//ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js' | script_tag }}
+{{ 'products.js' | asset_url | script_tag }}
+
+{% if template contains 'product' %}
+
+<script>
+Shopify.Products.recordRecentlyViewed();
+</script>
+
+{% endif %}
+  
+
+#Create  products.js file and add code 
